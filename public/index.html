@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <h1>Social<span>Connect.</span></h1>
+            <p>Connect. Share. Explore.</p>
+        </div>
+
+        <nav class="topbar-actions">
+            <a href="login.html" class="nav-icon-link">
+                <span>↪</span> Login
+            </a>
+
+            <a href="signup.html" class="nav-icon-link">
+                <span>♙</span> Signup
+            </a>
+
+            <button id="profileButton">My Profile</button>
+            <button id="logoutButton">Logout</button>
+        </nav>
+    </header>
+
+    <main class="app-layout">
+
+        <aside class="left-sidebar">
+            <h3>Your Space</h3>
+
+            <nav>
+                <a href="#homeFeed">⌂ &nbsp; Home</a>
+                <a href="#discoverPeople">◎ &nbsp; Discover People</a>
+                <a href="#postsFeed">▤ &nbsp; Recent Posts</a>
+            </nav>
+
+            <div class="sidebar-note">
+                <h4>SocialConnect</h4>
+                <p>Stay connected with your community.</p>
+            </div>
+        </aside>
+
+        <div class="feed-column">
+
+            <section id="profileSection" style="display:none;">
+                <h2>My Profile</h2>
+
+                <div class="profile-card">
+                    <h3 id="profileName"></h3>
+                    <p id="profileEmail"></p>
+                    <p id="profileJoinDate"></p>
+
+                    <div class="follow-stats">
+                        <div>
+                            <strong id="followersCount">0</strong>
+                            <span>Followers</span>
+                        </div>
+                        <div>
+                            <strong id="followingCount">0</strong>
+                            <span>Following</span>
+                        </div>
+                    </div>
+
+                    <div id="followersList"></div>
+                    <div id="followingList"></div>
+
+                    <button id="editProfileButton">Edit Profile</button>
+
+                    <form id="editProfileForm" style="display:none;">
+                        <h3>Edit Your Profile</h3>
+
+                        <input type="text" id="editName" placeholder="Enter your name" required>
+
+                        <input type="email" id="editEmail" placeholder="Enter your email" required>
+
+                        <button type="submit">Save Changes</button>
+                        <button type="button" id="cancelEditProfile">
+                            Cancel
+                        </button>
+                    </form>
+
+                    <p id="profileMessage"></p>
+
+                    <h3>My Posts</h3>
+                    <div id="myPostsContainer"></div>
+                </div>
+
+                <button id="backToHome">Back to Home</button>
+            </section>
+
+            <section id="otherProfileSection" style="display:none;">
+                <h2>User Profile</h2>
+
+                <div class="profile-card">
+                    <h3 id="otherProfileName"></h3>
+                    <p id="otherProfileJoinDate"></p>
+
+                    <div class="follow-stats">
+                        <div>
+                            <strong id="otherFollowersCount">0</strong>
+                            <span>Followers</span>
+                        </div>
+                        <div>
+                            <strong id="otherFollowingCount">0</strong>
+                            <span>Following</span>
+                        </div>
+                    </div>
+
+                    <button id="otherFollowButton" class="follow-button">
+                        Follow
+                    </button>
+
+                    <div id="otherFollowersList"></div>
+                    <div id="otherFollowingList"></div>
+
+                    <h3>User Posts</h3>
+                    <div id="otherPostsContainer"></div>
+                </div>
+
+                <button id="backFromOtherProfile">Back to Home</button>
+            </section>
+
+            <section class="welcome" id="homeFeed">
+                <h2>Welcome to SocialConnect! 👋</h2>
+                <p>Share your thoughts and connect with people.</p>
+            </section>
+
+            <!-- Authentication -->
+            <section class="auth-container">
+
+                <div class="auth-box">
+                    <h2>Create Account</h2>
+
+                    <form id="signupForm">
+                        <input type="text" id="signupName" placeholder="Enter your name" required>
+
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+
+                        <input type="password" id="signupPassword" placeholder="Create password" required>
+
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+
+                <div class="auth-box">
+                    <h2>Welcome Back</h2>
+
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+
+                <p id="authMessage"></p>
+            </section>
+
+            <section class="create-post">
+                <h2>Create a Post</h2>
+
+                <form id="postForm">
+                    <textarea id="postContent" placeholder="What's on your mind?" required></textarea>
+                    <label for="postImage">Add Image</label>
+                    <input type="file" id="postImage" accept="image/*">
+
+                    <button type="submit">Publish Post</button>
+                </form>
+            </section>
+
+            <section class="posts-section" id="postsFeed">
+                <h2>Recent Posts</h2>
+                <div id="postsContainer"></div>
+            </section>
+
+        </div>
+
+        <aside class="right-sidebar">
+
+            <section class="discover-users" id="discoverPeople">
+                <h2>Discover People</h2>
+
+                <input type="text" id="searchUsers" placeholder="Search people...">
+
+                <div id="usersContainer">
+                    <p>Loading users...</p>
+                </div>
+            </section>
+
+        </aside>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
